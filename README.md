@@ -70,15 +70,16 @@ User Query
 # Install dependencies
 pip install -r requirements.txt
 
-# Run tests
+# Run automated tests (validates ToT + orchestrator logic)
 pytest src/tests/ -v
 
-# Start the agent (requires Databricks credentials)
-export DATABRICKS_HOST="https://your-host.cloud.databricks.com"
-export DATABRICKS_TOKEN="your-token"
-export ENABLE_TOT_SYNTHESIS=true
+# Demo stub (no cloud credentials required)
 python src/agent/main_demo.py
 ```
+
+For a connected deployment, set Databricks env vars (see Configuration) and wire vector search in your runtime.
+
+**Supporting materials:** `docs/evaluation.md`, `examples/expected_outputs.md`, `examples/test_results.txt`
 
 ---
 
@@ -129,9 +130,12 @@ capstone-cre-agent/
 │       ├── test_tot_synthesizer.py
 │       └── test_tot_orchestrator_integration.py
 ├── docs/
-│   └── architecture.md             # Detailed design documentation
+│   ├── architecture.md             # Detailed design documentation
+│   └── evaluation.md               # Test results + design metrics
 └── examples/
-    └── sample_queries.md           # Example queries and expected behavior
+    ├── sample_queries.md           # Example queries and expected behavior
+    ├── expected_outputs.md         # Response shape examples
+    └── test_results.txt            # pytest output (12/12 passed)
 ```
 
 ---
