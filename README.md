@@ -115,11 +115,14 @@ This avoids **premature commitment** — where a linear chain of thought locks i
 ## Project Structure
 
 ```
-capstone-cre-agent/
+cmu-capstone-cre-agent/
 ├── README.md
 ├── requirements.txt
+├── .gitignore
 ├── src/
 │   ├── agent/
+│   │   ├── __init__.py
+│   │   ├── main_demo.py            # Demo entry point (no cloud required)
 │   │   ├── agent_state.py          # State, plan, working memory
 │   │   ├── agentic_orchestrator.py # ReAct loop + ToT integration
 │   │   ├── tot_synthesizer.py      # Tree-of-Thought engine
